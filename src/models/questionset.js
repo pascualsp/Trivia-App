@@ -8,12 +8,8 @@ const setSchema = new mongoose.Schema({
     },
     questions: [{
         qid: {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
             required: true
-        },
-        custom: {
-            type: Boolean,
-            default: false
         }
     }]
 }, {

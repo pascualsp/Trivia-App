@@ -1,10 +1,11 @@
 const express = require('express');
 const QuestionSet = require('../models/questionset');
+const Question = require('../models/question');
 
 const router = new express.Router();
 
 // Create new QuestionSet
-router.post('/qs', async (req, res) => {
+router.post('/qset', async (req, res) => {
     const qs = new QuestionSet({
         title: req.body.title
     });
@@ -18,7 +19,7 @@ router.post('/qs', async (req, res) => {
 });
 
 // Get QuestionSet from id
-router.get('/qs/:id', async (req, res) => {
+router.get('/qset/:id', async (req, res) => {
     try {
         const qs = await QuestionSet.findOne({ _id: req.params.id });
 
@@ -32,16 +33,17 @@ router.get('/qs/:id', async (req, res) => {
     }
 });
 
-// Add question to specified QuestionSet
-router.post('/qs/:id/add', async (req, res) => {
+// Add Question to specified QuestionSet
+router.post('/qset/:id/add', async (req, res) => {
     try {
         const qs = await QuestionSet.findOne({ _id: req.params.id });
+        const q = await Question.findOne({ _id: req.body.qid })
 
-        if(!qs) {
+        if(!qs || !q) {
             return res.status(404).send();
         }
 
-        qs.questions = qs.questions.concat({ ...req.body });
+        qs.questions = qs.questions.concat({ qid: q._id });
         await qs.save();
         
         res.send(qs);
@@ -50,14 +52,18 @@ router.post('/qs/:id/add', async (req, res) => {
     }
 });
 
-// Delete QuestionSet
-router.delete('/qs/:id', async (req, res) => {
+// Delete QuestionSet and associated Questions
+router.delete('/qset/:id', async (req, res) => {
     try {
         const qs = await QuestionSet.findOneAndDelete({ _id: req.params.id });
 
         if(!qs) {
             return res.status(404).send();
         }
+
+        qs.questions.forEach(async (question) => {
+            await Question.findOneAndDelete({ _id: question.qid });
+        });
 
         res.send(qs);
     } catch(e) {
@@ -66,7 +72,7 @@ router.delete('/qs/:id', async (req, res) => {
 });
 
 // Remove question from specified QuestionSet
-router.delete('/qs/:id/remove', async (req, res) => {
+router.delete('/qset/:id/remove', async (req, res) => {
     try {
         const qs = await QuestionSet.findOne({ _id: req.params.id });
 
@@ -75,7 +81,7 @@ router.delete('/qs/:id/remove', async (req, res) => {
         }
 
         qs.questions = qs.questions.filter((question) => {
-            return question._id.toString() !== req.body.id;
+            return question.qid.toString() !== req.body.id;
         });
         await qs.save();
         
