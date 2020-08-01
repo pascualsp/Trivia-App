@@ -27,7 +27,7 @@ router.get('/qset/:id', async (req, res) => {
             return res.status(404).send();
         }
 
-        res.send(qs);
+        res.status(200).send(qs);
     } catch(e) {
         res.status(500).send();
     }

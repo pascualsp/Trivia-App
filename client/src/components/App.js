@@ -1,26 +1,27 @@
 import React from 'react';
-import { Container, Form, Input, Button, FormGroup } from 'reactstrap';
+import LoadBoard from './LoadBoard';
+import CreateBoard from './CreateBoard';
+import { Container } from 'reactstrap';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
+    // TODO: IMPLEMENT BOARD WITH MORE COMPONENTS; ADD MORE TO STATE TO REPRESENT BOARD
     state = {qsetID: null};
 
+    setBoard = (qid) => {
+        this.setState({ qsetID: qid })
+    };
+    
     render() {
         return (
-            <Container>
-                <h1 className="row display-2 justify-content-center">Quizia</h1>
-                <p className="row lead justify-content-center">Create your own collection of trivia questions</p>
-                <p className="row lead justify-content-center">Choose from a database of 3000+ trivia questions</p>
-                <hr width="400em" style={{borderColor: "white"}} />
-                <h2 className="row display-4 justify-content-center" style={{marginTop: "2em"}}>Question board title:</h2>
-                <div className="row justify-content-center">
-                    <Form className="col-6">
-                        <FormGroup>
-                            <Input type="text" name="qs" id="qsTitle" size="lg"/>
-                        </FormGroup>
-                        <Button block>Create Board</Button>
-                    </Form>
-                </div>
-            </Container>
+            <Router>
+                <Container>
+                    <LoadBoard qsetID={this.state.qsetID} setBoard={this.setBoard} />
+                    <Route path="/">
+                        <CreateBoard qsetID={this.state.qsetID} setBoard={this.setBoard} />
+                    </Route>
+                </Container>
+            </Router>
         );
     }
 }
