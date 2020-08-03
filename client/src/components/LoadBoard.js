@@ -5,7 +5,8 @@ const LoadBoard = ({ qsetID, setBoard }) => {
     const getBoard = async (qid) => {
         try {
             const response = await axios.get('/qset/' + qid);
-            setBoard(response.data._id);
+            const responseQ = await axios.get('/qset/qs/' + qid);
+            setBoard(response.data.title, response.data._id, responseQ.data);
         } catch (e) {}
     };
 

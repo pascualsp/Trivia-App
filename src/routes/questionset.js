@@ -33,20 +33,16 @@ router.get('/qset/:id', async (req, res) => {
     }
 });
 
-// Add Question to specified QuestionSet
-router.post('/qset/:id/add', async (req, res) => {
+// Get Questions from QuestionSet
+router.get('/qset/qs/:id', async (req, res) => {
     try {
-        const qs = await QuestionSet.findOne({ _id: req.params.id });
-        const q = await Question.findOne({ _id: req.body.qid })
+        const qs = await Question.find({ owner: req.params.id });
 
-        if(!qs || !q) {
+        if(!qs) {
             return res.status(404).send();
         }
 
-        qs.questions = qs.questions.concat({ qid: q._id });
-        await qs.save();
-        
-        res.send(qs);
+        res.status(200).send(qs);
     } catch(e) {
         res.status(500).send();
     }
@@ -61,30 +57,8 @@ router.delete('/qset/:id', async (req, res) => {
             return res.status(404).send();
         }
 
-        qs.questions.forEach(async (question) => {
-            await Question.findOneAndDelete({ _id: question.qid });
-        });
+        await Question.deleteMany({ owner: qs._id });
 
-        res.send(qs);
-    } catch(e) {
-        res.status(500).send();
-    }
-});
-
-// Remove question from specified QuestionSet
-router.delete('/qset/:id/remove', async (req, res) => {
-    try {
-        const qs = await QuestionSet.findOne({ _id: req.params.id });
-
-        if(!qs) {
-            return res.status(404).send();
-        }
-
-        qs.questions = qs.questions.filter((question) => {
-            return question.qid.toString() !== req.body.id;
-        });
-        await qs.save();
-        
         res.send(qs);
     } catch(e) {
         res.status(500).send();

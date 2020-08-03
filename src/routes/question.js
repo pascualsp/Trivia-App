@@ -7,7 +7,8 @@ const router = new express.Router();
 router.post('/q', async (req, res) => {
     const q = new Question({
         question: req.body.question,
-        answer: req.body.answer
+        answer: req.body.answer,
+        owner: req.body.owner
     });
 
     try {

@@ -5,13 +5,7 @@ const setSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
-    },
-    questions: [{
-        qid: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true
-        }
-    }]
+    }
 }, {
     timestamps: true
 });

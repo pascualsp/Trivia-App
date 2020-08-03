@@ -10,7 +10,7 @@ const CreateBoard = ({ qsetID, setBoard }) => {
     const initBoard = async (e) => {
         e.preventDefault();
         const response = await axios.post('/qset', { title });
-        setBoard(response.data._id);
+        setBoard(response.data.title, response.data._id, []);
         history.push('/?qs=' + response.data._id);
     };
 
