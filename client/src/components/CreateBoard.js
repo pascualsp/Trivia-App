@@ -23,7 +23,7 @@ const CreateBoard = ({ qsetID, setBoard }) => {
                 <hr width="400em" style={{borderColor: "white"}} />
                 <h2 className="row display-4 justify-content-center" style={{ marginTop: "2em" }}>Question board title:</h2>
                 <div className="row justify-content-center">
-                    <Form onSubmit={initBoard} className="col-6">
+                    <Form onSubmit={initBoard} className="col-4">
                         <FormGroup>
                             <Input type="text" size="lg"
                                 value={title}

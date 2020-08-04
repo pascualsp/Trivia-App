@@ -16,7 +16,7 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-                <Container>
+                <Container fluid={true}>
                     <LoadBoard qsetID={this.state.qsetID} setBoard={this.setBoard} />
                     <Route path="/">
                         <CreateBoard qsetID={this.state.qsetID} setBoard={this.setBoard} />
