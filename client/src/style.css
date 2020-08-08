@@ -3,6 +3,10 @@ body, .modal-content {
 	color: white;
 }
 
+.wButton {
+	color: white;
+}
+
 .qButton:hover {
 	cursor: pointer;
 	color: #A9A9A9;

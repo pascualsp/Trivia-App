@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Input, Button, UncontrolledTooltip } from 'reactstrap';
+import { Form, FormGroup, Input, Button, UncontrolledTooltip, Card, CardBody, CardText, Modal, ModalBody } from 'reactstrap';
 import axios from 'axios';
+import QuestionAPI from './QuestionAPI';
+import categories from './categories';
 
 const QuestionAdder = ({ adder, qsetID, loadQuestions }) => {
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
+    const [categoryID, setCategoryID] = useState(0);
+    const [categoryTitle, setCategoryTitle] = useState("");
     const [tooltipOpen, setTooltipOpen] = useState(false);
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
 
     const addQuestion = async (e) => {
         e.preventDefault();
+
         if (question.trim() !== "" && answer.trim() !== "") {
             await axios.post('/q', { question, answer, owner:qsetID });
             setTooltipOpen(true);
@@ -17,6 +25,17 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions }) => {
             setAnswer("");
             loadQuestions();
         }
+    };
+
+    const addAPIQuestion = async (q, a) => {
+        await axios.post('/q', { question:q, answer:a, owner:qsetID });
+        loadQuestions();
+    };
+
+    const getApiQuestions = (cid, cat) => {
+        setCategoryID(cid);
+        setCategoryTitle(cat);
+        toggle();
     };
 
     if (adder === "custom") {
@@ -45,9 +64,27 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions }) => {
             </div>
         );
     } else if (adder === "api") {
+        const categoriesList = categories.map((category, index) => {
+            return (
+                <Card key={index} onClick={() => getApiQuestions(category.id, category.name)} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
+                    <CardBody className="d-flex flex-column">
+                        <CardText className="lead">{category.name}</CardText>
+                    </CardBody>
+                </Card>
+            );
+        });
+
         return (
             <div className="row justify-content-center">
-                {adder}
+                <h1 className="row display-4 justify-content-center">Choose a Category:</h1>
+                <div className="row justify-content-center">
+                    {categoriesList}
+                </div>
+                <Modal isOpen={modal} toggle={toggle} className="modal-xl">
+                    <ModalBody className="row justify-content-center">
+                        <QuestionAPI cid={categoryID} cat={categoryTitle} add={addAPIQuestion} />
+                    </ModalBody>
+                </Modal>
             </div>
         );
     }

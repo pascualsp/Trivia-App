@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 
 class App extends React.Component {
-    // TODO: CHANGE ADDER MODAL IMPLEMENTATION. MAKE ADDER COME FROM ADDERBUTTON
     state = { qTitle: "", qsetID: null, questions: [] };
 
     setBoard = (title, qid, questions) => {
