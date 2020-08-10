@@ -16,3 +16,8 @@ body, .modal-content {
 	cursor: pointer;
 	color: #A9A9A9;
 }
+
+.modal-header {
+	border-bottom: 0 none;
+	height: 38px;
+}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Input, Button, UncontrolledTooltip, Card, CardBody, CardText, Modal, ModalBody } from 'reactstrap';
+import { Form, FormGroup, Input, Button, UncontrolledTooltip, Card, CardBody, CardText, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import axios from 'axios';
 import QuestionAPI from './QuestionAPI';
 import categories from './categories';
 
-const QuestionAdder = ({ adder, qsetID, loadQuestions }) => {
+const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
     const [categoryID, setCategoryID] = useState(0);
@@ -13,6 +13,11 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions }) => {
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
+
+    const cascadeToggle2 = () => {
+        toggle();
+        cascadeToggle();
+    }
 
     const addQuestion = async (e) => {
         e.preventDefault();
@@ -81,6 +86,9 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions }) => {
                     {categoriesList}
                 </div>
                 <Modal isOpen={modal} toggle={toggle} className="modal-xl">
+                    <ModalHeader toggle={cascadeToggle2}>
+                        <i onClick={toggle}><span className="close">&larr;</span></i>
+                    </ModalHeader>
                     <ModalBody className="row justify-content-center">
                         <QuestionAPI cid={categoryID} cat={categoryTitle} add={addAPIQuestion} />
                     </ModalBody>
