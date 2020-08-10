@@ -8,8 +8,16 @@ module.exports = [
         name: "Movies"
     },
     {
+        id: 14,
+        name: "Television"
+    },
+    {
         id: 12,
         name: "Music"
+    },
+    {
+        id: 26,
+        name: "Celebrities"
     },
     {
         id: 15,
@@ -20,8 +28,16 @@ module.exports = [
         name: "Sports"
     },
     {
+        id: 19,
+        name: "Mathematics"
+    },
+    {
         id: 17,
         name: "Science and Nature"
+    },
+    {
+        id: 27,
+        name: "Animals"
     },
     {
         id: 22,

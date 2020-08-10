@@ -3,11 +3,16 @@ body, .modal-content {
 	color: white;
 }
 
+.close {
+	color: white;
+	text-shadow: none;
+}
+
 .wButton {
 	color: white;
 }
 
-.qButton:hover {
+.qButton:hover, .close:hover {
 	cursor: pointer;
 	color: #A9A9A9;
 }

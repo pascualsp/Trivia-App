@@ -19,6 +19,11 @@ class App extends React.Component {
         this.setState({ questions: response.data })
     }
 
+    deleteQuestion = async(qid) => {
+        await axios.delete('/q/' + qid);
+        this.loadQuestions();
+    }
+
     render() {
         return (
             <Router>
@@ -28,7 +33,7 @@ class App extends React.Component {
                         <CreateBoard qsetID={this.state.qsetID} setBoard={this.setBoard} />
                     </Route>
                     <h1 className="row display-4 justify-content-center">{this.state.qTitle} </h1>
-                    <QuestionList qList={this.state.questions} />
+                    <QuestionList qList={this.state.questions} deleteQuestion={this.deleteQuestion} />
                     <QuestionAdderButton qsetID={this.state.qsetID} loadQuestions={this.loadQuestions} />
                 </Container>
             </Router>
