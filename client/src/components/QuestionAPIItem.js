@@ -18,7 +18,7 @@ const QuestionAPIItem = ({ bID, q, a, add }) => {
     const addQuestion = (q, a) => {
         add(q, a);
         setTooltipOpen(true);
-        setTimeout(() => setTooltipOpen(false), 3500);
+        setTimeout(() => setTooltipOpen(false), 2000);
     }
 
     return (

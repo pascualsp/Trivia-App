@@ -3,6 +3,7 @@ import LoadBoard from './LoadBoard';
 import CreateBoard from './CreateBoard';
 import QuestionList from './QuestionList';
 import QuestionAdderButton from './QuestionAdderButton';
+import LinkButton from './LinkButton';
 import { Container } from 'reactstrap';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
@@ -33,6 +34,7 @@ class App extends React.Component {
                         <CreateBoard qsetID={this.state.qsetID} setBoard={this.setBoard} />
                     </Route>
                     <h1 className="row display-4 justify-content-center">{this.state.qTitle} </h1>
+                    <LinkButton qsetID={this.state.qsetID} />
                     <QuestionList qList={this.state.questions} deleteQuestion={this.deleteQuestion} />
                     <QuestionAdderButton qsetID={this.state.qsetID} loadQuestions={this.loadQuestions} />
                 </Container>

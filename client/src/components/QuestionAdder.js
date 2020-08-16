@@ -25,7 +25,7 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
         if (question.trim() !== "" && answer.trim() !== "") {
             await axios.post('/q', { question, answer, owner:qsetID });
             setTooltipOpen(true);
-            setTimeout(() => setTooltipOpen(false), 3500);
+            setTimeout(() => setTooltipOpen(false), 2000);
             setQuestion("");
             setAnswer("");
             loadQuestions();
