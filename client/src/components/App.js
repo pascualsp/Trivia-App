@@ -33,7 +33,7 @@ class App extends React.Component {
                     <Route path="/">
                         <CreateBoard qsetID={this.state.qsetID} setBoard={this.setBoard} />
                     </Route>
-                    <h1 className="row display-4 justify-content-center">{this.state.qTitle} </h1>
+                    <h1 className="row display-3 justify-content-center">{this.state.qTitle} </h1>
                     <LinkButton qsetID={this.state.qsetID} />
                     <QuestionList qList={this.state.questions} deleteQuestion={this.deleteQuestion} />
                     <QuestionAdderButton qsetID={this.state.qsetID} loadQuestions={this.loadQuestions} />

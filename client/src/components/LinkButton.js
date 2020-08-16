@@ -18,7 +18,7 @@ const LinkButton = ({ qsetID }) => {
     if (qsetID !== null) {
         return (
             <div className="row justify-content-center">
-                <Button id="linkButton" onClick={copyLink}>Copy link to board</Button>
+                <Button outline id="linkButton" onClick={copyLink} className="wButton m-2">Copy link to board</Button>
                 <UncontrolledTooltip placement="right" target="linkButton" isOpen={tooltipOpen} trigger="click">
                     Copied!
                 </UncontrolledTooltip>

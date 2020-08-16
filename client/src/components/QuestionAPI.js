@@ -35,6 +35,7 @@ const QuestionAPI = ({ cid, cat, add }) => {
                 <div className="row justify-content-center">
                     <Card onClick={getQuestions} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
                         <CardBody>
+                            <CardText className="display-4">&#10227;</CardText>
                             <CardText>Refresh list</CardText>
                         </CardBody>
                     </Card>
@@ -43,7 +44,7 @@ const QuestionAPI = ({ cid, cat, add }) => {
         );
     }
 
-    return null;
+    return <h1 className="display-4 justify-content-center">Loading...</h1>;
 }
 
 export default QuestionAPI;
