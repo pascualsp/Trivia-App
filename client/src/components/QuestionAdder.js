@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, FormGroup, Input, Button, UncontrolledTooltip, Card, CardBody, CardText, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import axios from 'axios';
 import QuestionAPI from './QuestionAPI';
@@ -25,12 +25,16 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
         if (question.trim() !== "" && answer.trim() !== "") {
             await axios.post('/q', { question, answer, owner:qsetID });
             setTooltipOpen(true);
-            setTimeout(() => setTooltipOpen(false), 2000);
             setQuestion("");
             setAnswer("");
             loadQuestions();
         }
     };
+
+    useEffect(() => {
+        const timer = setTimeout(() => setTooltipOpen(false), 2000);
+        return () => clearTimeout(timer);
+    }, [tooltipOpen]);
 
     const addAPIQuestion = async (q, a) => {
         await axios.post('/q', { question:q, answer:a, owner:qsetID });

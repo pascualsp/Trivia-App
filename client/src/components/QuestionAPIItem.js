@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card, CardBody, CardText, Button, UncontrolledTooltip } from 'reactstrap';
 
 const QuestionAPIItem = ({ bID, q, a, add }) => {
@@ -18,8 +18,12 @@ const QuestionAPIItem = ({ bID, q, a, add }) => {
     const addQuestion = (q, a) => {
         add(q, a);
         setTooltipOpen(true);
-        setTimeout(() => setTooltipOpen(false), 2000);
     }
+
+    useEffect(() => {
+        const timer = setTimeout(() => setTooltipOpen(false), 2000);
+        return () => clearTimeout(timer);
+    }, [tooltipOpen]);
 
     return (
         <Card className="col-xl-3 col-lg-4 col-md-5 text-center m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
