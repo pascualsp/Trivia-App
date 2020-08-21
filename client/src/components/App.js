@@ -25,6 +25,11 @@ class App extends React.Component {
         this.loadQuestions();
     }
 
+    editQuestion = async(qid, newQuestion, newAnswer) => {
+        await axios.patch('/q/' + qid, { question:newQuestion, answer:newAnswer});
+        this.loadQuestions();
+    }
+
     render() {
         return (
             <Router>
@@ -35,7 +40,7 @@ class App extends React.Component {
                     </Route>
                     <h1 className="row display-3 justify-content-center">{this.state.qTitle} </h1>
                     <LinkButton qsetID={this.state.qsetID} />
-                    <QuestionList qList={this.state.questions} deleteQuestion={this.deleteQuestion} />
+                    <QuestionList qList={this.state.questions} deleteQuestion={this.deleteQuestion} editQuestion={this.editQuestion} />
                     <QuestionAdderButton qsetID={this.state.qsetID} loadQuestions={this.loadQuestions} />
                 </Container>
             </Router>

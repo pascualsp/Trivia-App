@@ -29,17 +29,11 @@ const QuestionAPIItem = ({ bID, q, a, add }) => {
         <Card className="col-xl-3 col-lg-4 col-md-5 text-center m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
             <CardBody className="d-flex flex-column">
                 <CardText>{q}</CardText>
-                <div className="mt-auto">
-                    <div className="row justify-content-center">
-                        <Button onClick={() => revealAnswer()} size="md" className="row">{answerText}</Button>
-                    </div>
-                    <div className="row justify-content-center">
-                        <Button id={"q" + bID.toString()} outline onClick={() => addQuestion(q, a)} size="md" className="wButton row m-2">Add Question</Button>
-                        <UncontrolledTooltip placement="right" target={"q" + bID.toString()} isOpen={tooltipOpen} trigger="click">
-                            Question added!
-                        </UncontrolledTooltip>
-                    </div>
-                </div>
+                <Button block onClick={() => revealAnswer()} className="mt-auto">{answerText}</Button>
+                <Button block outline id={"q" + bID.toString()} onClick={() => addQuestion(q, a)} className="wButton">Add Question</Button>
+                <UncontrolledTooltip placement="right" target={"q" + bID.toString()} isOpen={tooltipOpen} trigger="click">
+                    Question added!
+                </UncontrolledTooltip>
             </CardBody>
         </Card>
     );

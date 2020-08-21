@@ -8,11 +8,21 @@ body, .modal-content {
 	text-shadow: none;
 }
 
+.edit {
+	color: #989898;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 2px 9px;
+	font-family: "Helvetica";
+	font-size: 115%;
+}
+
 .wButton {
 	color: white;
 }
 
-.qButton:hover, .close:hover {
+.qButton:hover, .close:hover, .edit:hover {
 	cursor: pointer;
 	color: #A9A9A9;
 }

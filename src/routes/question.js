@@ -34,6 +34,26 @@ router.get('/q/:id', async (req, res) => {
     }
 });
 
+// Edit Question
+router.patch('/q/:id', async (req, res) => {
+    const updates = Object.keys(req.body);
+
+    try {
+        const q = await Question.findOne({ _id: req.params.id });
+
+        if(!q) {
+            return res.status(404).send();
+        }
+
+        updates.forEach((update) => q[update] = req.body[update]);
+        await q.save();
+
+        res.send(q);
+    } catch(e) {
+        res.status(400).send(e);
+    }
+});
+
 // Delete Question
 router.delete('/q/:id', async (req, res) => {
     try {
