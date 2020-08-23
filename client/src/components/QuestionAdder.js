@@ -49,7 +49,7 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
 
     if (adder === "custom") {
         return (
-            <div className="row justify-content-center">
+            <div className="row">
                 <Form onSubmit={addQuestion}>
                     <FormGroup>
                         <h2 className="row lead justify-content-center">Question:</h2>
@@ -85,7 +85,7 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
 
         return (
             <div className="row justify-content-center">
-                <h1 className="row display-4 justify-content-center">Choose a Category:</h1>
+                <h1 className="row display-4">Choose a Category:</h1>
                 <div className="row justify-content-center">
                     {categoriesList}
                 </div>

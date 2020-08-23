@@ -3,7 +3,7 @@ import { Card, CardText, Button, CardBody, Modal, ModalHeader, ModalBody, Form, 
 
 const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) => {
     const [answerText, setAnswer] = useState("Reveal answer");
-    const [revealed, setRevealed] = useState(true);
+    const [revealed, setRevealed] = useState(false);
     const [modal, setModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [editQuestion, setEditQuestion] = useState(question);
@@ -19,12 +19,15 @@ const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) 
 
     const revealAnswer = () => {
         setRevealed(!revealed);
+    };
+
+    useEffect(() => {
         if (revealed) {
             setAnswer(answer);
         } else {
             setAnswer("Reveal answer");
         }
-    };
+    }, [revealed, answer]);
 
     const processDelete = () => {
         deleteQuestion(qid);
@@ -36,6 +39,7 @@ const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) 
 
         if (editQuestion.trim() !== "" && editAnswer.trim() !== "") {
             if (editQuestion !== question || editAnswer !== answer) {
+                setRevealed(false);
                 edit(qid, editQuestion, editAnswer);
                 setTooltipOpen(true);
             }
@@ -58,7 +62,7 @@ const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) 
                 <Button block onClick={revealAnswer} className="mt-auto">{answerText}</Button>
             </CardBody>
             <Modal isOpen={modal} toggle={toggle} className="modal-md">
-                <ModalBody className="justify-content-center">
+                <ModalBody>
                     <h2 className="row lead justify-content-center">Are you sure you want to delete this question?</h2>
                     <Card onClick={processDelete} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
                         <CardBody className="lead">Yes</CardBody>

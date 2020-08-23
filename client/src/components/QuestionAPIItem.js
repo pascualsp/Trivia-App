@@ -3,17 +3,24 @@ import { Card, CardBody, CardText, Button, UncontrolledTooltip } from 'reactstra
 
 const QuestionAPIItem = ({ bID, q, a, add }) => {
     const [answerText, setAnswer] = useState("Reveal answer");
-    const [revealed, setRevealed] = useState(true);
+    const [revealed, setRevealed] = useState(false);
     const [tooltipOpen, setTooltipOpen] = useState(false);
+
+    useEffect(() => {
+        setRevealed(false);;
+    }, [q]);
 
     const revealAnswer = () => {
         setRevealed(!revealed);
+    };
+
+    useEffect(() => {
         if (revealed) {
             setAnswer(a);
         } else {
             setAnswer("Reveal answer");
         }
-    };
+    }, [revealed, a]);
 
     const addQuestion = (q, a) => {
         add(q, a);
