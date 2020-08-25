@@ -92,7 +92,7 @@ const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) 
                                 onChange={(e) => setEditAnswer(e.target.value)}
                             />
                         </FormGroup>
-                        <Button block id="eButton">Edit Question</Button>
+                        <Button block id="eButton" className="submitButton">Edit Question</Button>
                         <UncontrolledTooltip placement="right" target="eButton" isOpen={tooltipOpen} trigger="click">
                             Question edited!
                         </UncontrolledTooltip>

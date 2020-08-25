@@ -3,6 +3,12 @@ body, .modal-content {
 	color: white;
 }
 
+hr {
+	border-color: white;
+	width: 20em;
+	margin-top: 28px;
+}
+
 .close {
 	color: white;
 	text-shadow: none;
@@ -25,6 +31,10 @@ body, .modal-content {
 .qButton:hover, .close:hover, .edit:hover {
 	cursor: pointer;
 	color: #A9A9A9;
+}
+
+.submitButton {
+	margin-top: 25px;
 }
 
 .modal-header {

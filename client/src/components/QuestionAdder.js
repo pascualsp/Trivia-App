@@ -65,7 +65,7 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
                             onChange={(e) => setAnswer(e.target.value)}
                         />
                     </FormGroup>
-                    <Button block id="addButton">Add Question</Button>
+                    <Button block id="addButton" className="submitButton">Add Question</Button>
                     <UncontrolledTooltip placement="right" target="addButton" isOpen={tooltipOpen} trigger="click">
                         Question added!
                     </UncontrolledTooltip>
