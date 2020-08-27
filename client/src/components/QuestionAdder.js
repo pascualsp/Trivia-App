@@ -75,7 +75,7 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
     } else if (adder === "api") {
         const categoriesList = categories.map((category, index) => {
             return (
-                <Card key={index} onClick={() => getApiQuestions(category.id, category.name)} className="col-xl-3 col-lg-4 col-md-5 text-center qButton m-2" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
+                <Card key={index} onClick={() => getApiQuestions(category.id, category.name)} className="col-xl-3 col-lg-4 col-md-5 text-center qButton m-2">
                     <CardBody className="d-flex flex-column">
                         <CardText className="lead">{category.name}</CardText>
                     </CardBody>

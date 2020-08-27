@@ -52,22 +52,22 @@ const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) 
     }, [tooltipOpen]);
 
     return (
-        <Card className="col-xl-2 col-lg-3 col-md-4 text-center m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
+        <Card className="col-xl-2 col-lg-3 col-md-4 text-center m-3">
             <i>
                 <span onClick={editToggle} className="edit">&#9998;</span>
                 <span onClick={toggle} className="close">&times;</span>
             </i>
             <CardBody className="d-flex flex-column">
                 <CardText>{question}</CardText>
-                <Button block onClick={revealAnswer} className="mt-auto">{answerText}</Button>
+                <Button onClick={revealAnswer} className="mt-auto">{answerText}</Button>
             </CardBody>
             <Modal isOpen={modal} toggle={toggle} className="modal-md">
                 <ModalBody>
                     <h2 className="row lead justify-content-center">Are you sure you want to delete this question?</h2>
-                    <Card onClick={processDelete} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
+                    <Card onClick={processDelete} className="text-center qButton m-3">
                         <CardBody className="lead">Yes</CardBody>
                     </Card>
-                    <Card onClick={toggle} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
+                    <Card onClick={toggle} className="text-center qButton m-3">
                         <CardBody className="lead">No</CardBody>
                     </Card>
                 </ModalBody>

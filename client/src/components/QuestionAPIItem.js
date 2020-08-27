@@ -33,7 +33,7 @@ const QuestionAPIItem = ({ bID, q, a, add }) => {
     }, [tooltipOpen]);
 
     return (
-        <Card className="col-xl-3 col-lg-4 col-md-5 text-center m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
+        <Card className="col-xl-3 col-lg-4 col-md-5 text-center m-3">
             <CardBody className="d-flex flex-column">
                 <CardText>{q}</CardText>
                 <Button block onClick={() => revealAnswer()} className="mt-auto">{answerText}</Button>

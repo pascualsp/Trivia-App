@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardBody, CardText } from 'reactstrap';
+import { Card, CardText } from 'reactstrap';
 import axios from 'axios';
 import QuestionAPIItem from './QuestionAPIItem';
 
@@ -33,11 +33,9 @@ const QuestionAPI = ({ cid, cat, add }) => {
                     {renderedList}
                 </div>
                 <div className="row justify-content-center">
-                    <Card onClick={getQuestions} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
-                        <CardBody>
-                            <CardText className="display-4">&#10227;</CardText>
-                            <CardText>Refresh list</CardText>
-                        </CardBody>
+                    <Card onClick={getQuestions} className="text-center qButton outlineButton m-3">
+                        <CardText className="display-4 mb-1">&#10227;</CardText>
+                        <CardText className="mx-3 mb-3">Refresh list</CardText>
                     </Card>
                 </div>
             </div>

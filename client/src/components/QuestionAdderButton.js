@@ -23,23 +23,21 @@ const QuestionAdderButton = ({ qsetID, loadQuestions }) => {
     if (qsetID !== null) {
         return (
             <div className="row justify-content-center">
-                <Card onClick={toggle} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
-                    <CardBody>
-                        <CardText className="display-4">+</CardText>
-                        <CardText>Add Question</CardText>
-                    </CardBody>
+                <Card onClick={toggle} className="text-center qButton outlineButton m-3">
+                    <CardText className="display-4 mb-1">+</CardText>
+                    <CardText className="mx-4 mb-4">Add Question</CardText>
 		        </Card>
                 <Modal isOpen={modal} toggle={toggle} className="modal-lg">
                     <ModalHeader>
                         <i onClick={toggle}><span className="close">&larr;</span></i>
                     </ModalHeader>
                     <ModalBody className="row justify-content-center">
-                        <Card onClick={() => selectAdderType("custom")} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
+                        <Card onClick={() => selectAdderType("custom")} className="text-center qButton m-3">
                             <CardBody className="d-flex flex-column">
                                 <CardText className="lead">Create your own Question</CardText>
                             </CardBody>
                         </Card>
-                        <Card onClick={() => selectAdderType("api")} className="text-center qButton m-3" style={{ backgroundColor: '#484848', borderColor: 'white' }}>
+                        <Card onClick={() => selectAdderType("api")} className="text-center qButton m-3">
                             <CardBody className="d-flex flex-column">
                                 <CardText className="lead">Add Question from database</CardText>
                             </CardBody>
