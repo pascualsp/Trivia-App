@@ -53,9 +53,9 @@ const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) 
 
     return (
         <Card className="col-xl-2 col-lg-3 col-md-4 text-center m-3">
-            <i>
-                <span onClick={editToggle} className="edit">&#9998;</span>
-                <span onClick={toggle} className="close">&times;</span>
+            <i className="mt-4">
+                <span onClick={editToggle} className="editItem">&#9998;</span>
+                <span onClick={toggle} className="closeItem">&times;</span>
             </i>
             <CardBody className="d-flex flex-column">
                 <CardText>{question}</CardText>
@@ -63,7 +63,7 @@ const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) 
             </CardBody>
             <Modal isOpen={modal} toggle={toggle} className="modal-md">
                 <ModalBody>
-                    <h2 className="row lead justify-content-center">Are you sure you want to delete this question?</h2>
+                    <h2 className="row lead justify-content-center mt-2">Are you sure you want to delete this question?</h2>
                     <Card onClick={processDelete} className="text-center qButton m-3">
                         <CardBody className="lead">Yes</CardBody>
                     </Card>
@@ -92,7 +92,7 @@ const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) 
                                 onChange={(e) => setEditAnswer(e.target.value)}
                             />
                         </FormGroup>
-                        <Button block id="eButton" className="submitButton">Edit Question</Button>
+                        <Button block id="eButton" className="submitButton mb-2">Edit Question</Button>
                         <UncontrolledTooltip placement="right" target="eButton" isOpen={tooltipOpen} trigger="click">
                             Question edited!
                         </UncontrolledTooltip>

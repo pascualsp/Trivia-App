@@ -17,7 +17,7 @@ const CreateBoard = ({ qsetID, setBoard }) => {
     if(qsetID === null) {
         return (
             <div>
-                <h1 className="row display-2 justify-content-center">Quizia</h1>
+                <h1 className="row display-2 justify-content-center mt-2">Quizia</h1>
                 <p className="row lead justify-content-center">Create your own collection of trivia questions</p>
                 <p className="row lead justify-content-center">Choose from a database of 3000+ trivia questions</p>
                 <hr/>
