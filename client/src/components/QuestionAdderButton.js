@@ -23,7 +23,7 @@ const QuestionAdderButton = ({ qsetID, loadQuestions }) => {
     if (qsetID !== null) {
         return (
             <div className="row justify-content-center">
-                <Card onClick={toggle} className="text-center qButton outlineButton m-3">
+                <Card onClick={toggle} className="text-center outline-button m-3">
                     <CardText className="display-4 my-1">+</CardText>
                     <CardText className="mx-3 mb-3">Add question</CardText>
 		        </Card>

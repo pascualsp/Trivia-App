@@ -1,6 +1,6 @@
 body {
 	font-family: 'Rubik';
-	background-color: #282828;
+	background-color: #252829;
 	color: white;
 }
 
@@ -11,7 +11,7 @@ hr {
 }
 
 .card {
-	background-color: #505050;
+	background-color: #4a5052;
 }
 
 .modal-header {
@@ -20,7 +20,7 @@ hr {
 }
 
 .modal-content {
-	background-color: #282828;
+	background-color: #252829;
 	color: white;
 	border-color: #484848;
 }
@@ -68,7 +68,13 @@ hr {
 	margin-top: 25px;
 }
 
-.outlineButton {
-	background-color: #282828;
+.outline-button {
+	background-color: transparent;
 	border-color: #6c757d;
+	transition: all .15s ease-in;
+}
+
+.outline-button:hover {
+	cursor: pointer;
+	background-color: #6c757d;
 }

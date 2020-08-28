@@ -33,7 +33,7 @@ const QuestionAPI = ({ cid, cat, add }) => {
                     {renderedList}
                 </div>
                 <div className="row justify-content-center">
-                    <Card onClick={getQuestions} className="text-center qButton outlineButton m-3">
+                    <Card onClick={getQuestions} className="text-center outline-button m-3">
                         <CardText className="display-4 mt-2 mb-1">&#10227;</CardText>
                         <CardText className="mx-3 mb-3">Refresh list</CardText>
                     </Card>
