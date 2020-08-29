@@ -89,7 +89,7 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
                 <div className="row justify-content-center">
                     {categoriesList}
                 </div>
-                <Modal isOpen={modal} toggle={toggle} className="modal-xl">
+                <Modal isOpen={modal} toggle={toggle} className="modal-xl q-modal">
                     <ModalHeader toggle={cascadeToggle2}>
                         <i onClick={toggle}><span className="close">&larr;</span></i>
                     </ModalHeader>
