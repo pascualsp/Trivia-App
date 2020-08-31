@@ -85,7 +85,7 @@ const QuestionAdder = ({ adder, qsetID, loadQuestions, cascadeToggle }) => {
 
         return (
             <div className="row justify-content-center">
-                <h1 className="row display-4">Choose a Category:</h1>
+                <h1 className="row display-4 q-title">Choose a Category:</h1>
                 <div className="row justify-content-center">
                     {categoriesList}
                 </div>

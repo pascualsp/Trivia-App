@@ -24,7 +24,7 @@ const QuestionAdderButton = ({ qsetID, loadQuestions }) => {
         return (
             <div className="row justify-content-center">
                 <Card onClick={toggle} className="text-center outline-button m-3">
-                    <CardText className="display-4 my-1">+</CardText>
+                    <CardText className="display-4 my-1 q-title">+</CardText>
                     <CardText className="mx-3 mb-3">Add question</CardText>
 		        </Card>
                 <Modal isOpen={modal} toggle={toggle} className="modal-lg">

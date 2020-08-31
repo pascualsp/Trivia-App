@@ -1,12 +1,12 @@
 # Quizia
 Quizia allows you to create your own custom game board of trivia questions.<br />
-Create your own questions or choose from a database of premade questions.
+Create your own questions or choose from a database of premade questions.<br />
 Save the URL to access your game board at any time.
 
 [Click here to try it out!](https://pascualsp-trivia-app.herokuapp.com/)
 
-v 1.0
-
 Future plans:
-- Make app prettier
+- Make prettier
+- Add animations on card load/update
+- Make cards rearrangeable
 - Different question types such as multiple choice

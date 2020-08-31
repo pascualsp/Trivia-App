@@ -1,6 +1,6 @@
 body {
 	font-family: 'Rubik';
-	background-color: #252829;
+	background-color: hsl(220, 15%, 20%);
 	color: white;
 }
 
@@ -10,8 +10,12 @@ hr {
 	margin-top: 28px;
 }
 
+.q-title {
+	color: hsl(30, 95%, 69%);
+}
+
 .card {
-	background-color: #4a5052;
+	background-color: hsl(220, 10%, 35%);
 }
 
 .modal-header {
@@ -20,13 +24,14 @@ hr {
 }
 
 .modal-content {
-	background-color: #252829;
+	background-color: hsl(220, 15%, 20%);
 	color: white;
-	border-color: #484848;
+	/* border-color: #484848; */
 }
 
-.modal-backdrop.show {
-    opacity: 0.6;
+.modal-open .container-fluid, .modal-open  .container {
+	-webkit-filter: blur(2px);
+	filter: blur(2px);
 }
 
 .q-modal {
@@ -34,12 +39,17 @@ hr {
 }
 
 .close {
-	color: white;
+	color: hsl(30, 95%, 69%);
+	opacity: 1;
 	text-shadow: none;
 }
 
+.close:hover {
+	color: hsl(30, 90%, 75%) !important;
+}
+
 .closeItem {
-	color: #989898;
+	color: hsl(30, 90%, 75%);
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -50,7 +60,7 @@ hr {
 }
 
 .editItem {
-	color: #989898;
+	color: hsl(30, 90%, 75%);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -59,11 +69,56 @@ hr {
 	font-size: 105%;
 }
 
+.closeItem:hover, .editItem:hover {
+	color: hsl(30, 95%, 69%) !important;
+}
+
+.btn-secondary {
+	background-color: hsl(220, 10%, 50%);
+	border-color: hsl(220, 10%, 50%);
+}
+
+.btn-secondary:hover {
+	background-color: hsl(220, 20%, 45%);
+	border-color: hsl(220, 20%, 45%);
+}
+
+.btn-secondary:focus {
+	background-color: hsl(220, 20%, 45%);
+	border-color: hsl(220, 20%, 45%);
+}
+
+.btn-secondary:active {
+	background-color: hsl(220, 20%, 45%) !important;
+	border-color: hsl(220, 20%, 45%) !important;
+}
+
+.btn-outline-secondary {
+	border-color: hsl(220, 10%, 50%);
+}
+
+.btn-outline-secondary:hover {
+	border-color: hsl(220, 10%, 50%);
+	background-color: hsl(220, 10%, 50%);
+}
+
 .wButton {
 	color: white;
 }
 
-.qButton:hover, .close:hover, .edit:hover, .closeItem:hover, .editItem:hover {
+.qButton {
+	background-color: hsl(220, 10%, 50%);
+	border-color: hsl(220, 10%, 50%);
+	transition: all .15s ease-in;
+}
+
+.qButton:hover {
+	cursor: pointer;
+	background-color: hsl(220, 20%, 45%);
+	border-color: hsl(220, 20%, 45%);
+}
+
+.close:hover, .edit:hover, .closeItem:hover, .editItem:hover {
 	cursor: pointer;
 	color: #A9A9A9;
 }
@@ -74,11 +129,11 @@ hr {
 
 .outline-button {
 	background-color: transparent;
-	border-color: #6c757d;
+	border-color: hsl(220, 10%, 50%);
 	transition: all .15s ease-in;
 }
 
 .outline-button:hover {
 	cursor: pointer;
-	background-color: #6c757d;
+	background-color: hsl(220, 10%, 50%);
 }
