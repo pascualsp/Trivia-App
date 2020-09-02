@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardText, Button, CardBody, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, UncontrolledTooltip } from 'reactstrap';
 
-const QuestionListItem = ({ bID, qid, question, answer, deleteQuestion, edit }) => {
+const QuestionListItem = ({ qid, question, answer, deleteQuestion, edit }) => {
     const [answerText, setAnswer] = useState("Reveal answer");
     const [revealed, setRevealed] = useState(false);
     const [modal, setModal] = useState(false);

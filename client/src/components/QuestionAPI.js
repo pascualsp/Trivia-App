@@ -42,7 +42,7 @@ const QuestionAPI = ({ cid, cat, add }) => {
         );
     }
 
-    return <h1 className="display-4 justify-content-center">Loading...</h1>;
+    return <h1 className="display-4 justify-content-center q-title">Loading...</h1>;
 }
 
 export default QuestionAPI;

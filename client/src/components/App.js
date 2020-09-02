@@ -40,7 +40,7 @@ class App extends React.Component {
                     </Route>
                     <h1 className="row display-3 justify-content-center mt-2 q-title">{this.state.qTitle} </h1>
                     <LinkButton qsetID={this.state.qsetID} />
-                    <QuestionList qList={this.state.questions} deleteQuestion={this.deleteQuestion} editQuestion={this.editQuestion} />
+                    <QuestionList qsetID={this.state.qsetID} qList={this.state.questions} deleteQuestion={this.deleteQuestion} editQuestion={this.editQuestion} />
                     <QuestionAdderButton qsetID={this.state.qsetID} loadQuestions={this.loadQuestions} />
                 </Container>
             </Router>
